@@ -1,0 +1,351 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|c:\\users\\alayi\\onedrive\\desktop\\restaurant management system\\restaurant management system\\restaurant management system\\anasayfaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\anasayfaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\urunkart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\urunkart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\urunkart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\urunkart.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\kategorilist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\kategorilist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\stokyonetimiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\stokyonetimiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\kategorilerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\kategorilerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\signupform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\anasayfaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\anasayfaform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\stokyonetimiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\stokyonetimiform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\siparisform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\musterilerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\musterilerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\alayi\\OneDrive\\Desktop\\SQLQuery1.sql||{CC5D8DF0-88F4-4BB2-9DBB-B48CEE65C30A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\urunlerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\urunlerlist.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\musterilerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\musterilerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\kategorilerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\kategorilerform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\restaurant management system\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{29ACA770-7E86-4364-B7B6-2E3C70B91B98}|Restaurant Management System\\Restaurant Management System.csproj|solutionrelative:restaurant management system\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{74946827-37a0-11d2-a273-00c04f8ef4ff}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "musterilerList.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\musterilerList.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\musterilerList.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\musterilerList.cs",
+              "RelativeToolTip": "Restaurant Management System\\musterilerList.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAwwCMAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T17:53:10.799Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "anasayfaForm.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\anasayfaForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\anasayfaForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\anasayfaForm.cs",
+              "RelativeToolTip": "Restaurant Management System\\anasayfaForm.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAiwB0AAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-12T16:01:34.604Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "siparisForm.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\siparisForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\siparisForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\siparisForm.cs",
+              "RelativeToolTip": "Restaurant Management System\\siparisForm.cs",
+              "ViewState": "AgIAAGABAAAAAAAAAAAswMoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T10:28:44.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "urunKart.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\urunKart.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\urunKart.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\urunKart.cs",
+              "RelativeToolTip": "Restaurant Management System\\urunKart.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:47:54.222Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "urunKart.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\urunKart.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\urunKart.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\urunKart.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\urunKart.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:39:00.924Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "stokyonetimiForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\stokyonetimiForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\stokyonetimiForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\stokyonetimiForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\stokyonetimiForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T09:04:55.136Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "UrunlerList.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\UrunlerList.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\UrunlerList.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\UrunlerList.cs",
+              "RelativeToolTip": "Restaurant Management System\\UrunlerList.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-10T06:51:56.855Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "kategorilerForm.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\kategorilerForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\kategorilerForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\kategorilerForm.cs",
+              "RelativeToolTip": "Restaurant Management System\\kategorilerForm.cs",
+              "ViewState": "AgIAAIUAAAAAAAAAAADwv3QAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T12:08:18.835Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "stokyonetimiForm.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\stokyonetimiForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\stokyonetimiForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\stokyonetimiForm.cs",
+              "RelativeToolTip": "Restaurant Management System\\stokyonetimiForm.cs",
+              "ViewState": "AgIAADEBAAAAAAAAAAAAwEoBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-09T08:10:10.666Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "signupForm.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\signupForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\signupForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\signupForm.cs",
+              "RelativeToolTip": "Restaurant Management System\\signupForm.cs",
+              "ViewState": "AgIAAGAAAAAAAAAAAAAmwGkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-27T11:56:18.374Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "siparisForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\siparisForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\siparisForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\siparisForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\siparisForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T05:53:04.641Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "musterilerForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\musterilerForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\musterilerForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\musterilerForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\musterilerForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-25T05:52:54.379Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "anasayfaForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\anasayfaForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\anasayfaForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\anasayfaForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\anasayfaForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:39:44.002Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "signupForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\signupForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\signupForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\signupForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\signupForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:39:17.772Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Form1.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\Form1.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\Form1.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\Form1.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\Form1.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-22T15:38:13.708Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "kategoriList.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\kategoriList.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\kategoriList.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\kategoriList.cs",
+              "RelativeToolTip": "Restaurant Management System\\kategoriList.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwCcAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T16:56:56.322Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "SQLQuery1.sql",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\SQLQuery1.sql",
+              "RelativeDocumentMoniker": "..\\..\\SQLQuery1.sql",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\SQLQuery1.sql",
+              "RelativeToolTip": "..\\..\\SQLQuery1.sql",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000826|",
+              "WhenOpened": "2026-03-21T14:32:06.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\MainForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\MainForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\MainForm.cs",
+              "RelativeToolTip": "Restaurant Management System\\MainForm.cs",
+              "ViewState": "AgIAABoAAAAAAAAAAAAgwDIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T11:10:17.038Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "MainForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\MainForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\MainForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\MainForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\MainForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-20T17:12:03.212Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "kategorilerForm.cs [Tasar\u0131m]",
+              "DocumentMoniker": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\kategorilerForm.cs",
+              "RelativeDocumentMoniker": "Restaurant Management System\\kategorilerForm.cs",
+              "ToolTip": "C:\\Users\\alayi\\OneDrive\\Desktop\\Restaurant Management System\\Restaurant Management System\\Restaurant Management System\\kategorilerForm.cs [Tasar\u0131m]",
+              "RelativeToolTip": "Restaurant Management System\\kategorilerForm.cs [Tasar\u0131m]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-03-21T10:38:25.587Z",
+              "EditorCaption": " [Tasar\u0131m]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

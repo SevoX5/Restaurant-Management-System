@@ -1,0 +1,388 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient; // SQL Server bağlantısı için gerekli kütüphane
+using System.IO;
+using System.Globalization;
+
+namespace Restaurant_Management_System
+{
+    public partial class siparisForm : UserControl
+    {
+        string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\DatabaseRestoran.mdf;Integrated Security=True";
+
+        public siparisForm()
+        {
+            InitializeComponent();
+            UrunYukle();
+        }
+        public void karticerigi(int id, string urunadi, string stok, string fiyat, Image image, string urunid, string kategori,string adet)
+        {
+            var kart = new urunKart();
+            {
+                kart.id = id;
+                kart.UrunId = urunid;
+                kart.UrunAdi = urunadi;
+                kart.Stok = stok;
+                kart.Fiyat = fiyat;
+                kart.image = image;
+                kart.Kategori = kategori;
+                kart.urunAdedi = adet;
+            }
+            ;
+
+            flowLayoutPanel1.Controls.Add(kart);// Oluşturulan kartı flowLayoutPanel'e ekler
+
+            kart.selectKart += (q, w) =>
+            {
+                var selectedKart = (urunKart)q; // Seçilen kartı urunKart türüne dönüştürür
+                bool flag = false; // Kartın DataGridView'de zaten var olup olmadığını kontrol etmek için bir bayrak değişkeni
+
+                foreach (DataGridViewRow row in dataGridView1.Rows)
+                {
+                    if (row.Cells["id"].Value != null && (int)row.Cells["id"].Value == selectedKart.id)// Seçilen kartın id'si ile DataGridView'deki id hücresinin değeri eşleşiyorsa
+                    {
+
+                        decimal getFiyat = Convert.ToDecimal(selectedKart.Fiyat.Replace("$", "")); // Seçilen kartın fiyatını $ işaretinden temizleyerek decimal türüne dönüştürür
+                        int getAdet = Convert.ToInt32(selectedKart.urunAdedi); // Seçilen kartın adet değerini int türüne dönüştürür
+
+
+                        row.Cells["fiyat"].Value= getFiyat*getAdet; //  hücresine seçilen kartın fiyatı ile adetinin çarpımını atar
+                        row.Cells["adet"].Value = selectedKart.urunAdedi; //  hücresine seçilen kartın adet değerini atar                                                 
+                        flag = true; // Kartın DataGridView'de zaten var olduğunu belirtmek için bayrak değişkenini true yapar
+                        break; // Döngüyü sonlandırır
+                    }
+                }
+                if (!flag)
+                {
+                    decimal getFiyat = Convert.ToDecimal(selectedKart.Fiyat.Replace("$", "")); // Seçilen kartın fiyatını $ işaretinden temizleyerek decimal türüne dönüştürür
+                    int getAdet = Convert.ToInt32(selectedKart.urunAdedi); // Seçilen kartın adet değerini int türüne dönüştürür
+                    dataGridView1.Rows.Add(selectedKart.id, selectedKart.UrunAdi, getAdet,getAdet*getFiyat);
+
+                }
+                toplamGuncelle(); // DataGridView'deki fiyat hücrelerindeki değerleri toplayarak toplam fiyatı güncelleyen bir yöntemi çağırır
+            };
+
+        }
+
+
+        private void toplamGuncelle()// DataGridView'deki fiyat hücrelerindeki değerleri toplayarak toplam fiyatı güncelleyen bir yöntem
+        {
+            decimal toplamfiyat = 0; // Toplam fiyatı tutmak için bir değişken
+            foreach (DataGridViewRow row in dataGridView1.Rows) // DataGridView'deki her bir satır için döner
+            {
+                if (row.Cells["fiyat"].Value != null) // Eğer fiyat hücresinde bir değer varsa
+                {
+                   decimal fiyat = Convert.ToDecimal(row.Cells["fiyat"].Value); // Fiyat hücresindeki değeri decimal türüne dönüştürerek toplamfiyat değişkenine ekler
+                    toplamfiyat += fiyat; 
+                }
+            }
+            siparis_toplam.Text= $"${toplamfiyat:F2}"; // Toplam fiyatı siparis_toplam adlı bir kontrolün Text özelliğine atar//F2 formatı, toplam fiyatı iki ondalık basamakla gösterir//yuvarla 
+        }
+
+        public void UrunYukle()// Veritabanından ürünleri yükleyen ve her bir ürün için kart oluşturarak flowLayoutPanel'e ekleyen bir yöntem
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(connection))
+                {
+                    connect.Open();
+                    string selectData= "SELECT * FROM urunler "; // SQL sorgusu, urunler tablosundaki mevcut ürünleri seçer
+
+                    using (SqlCommand cmd =new SqlCommand(selectData, connect))
+                    {
+                        SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+
+                        flowLayoutPanel1.Controls.Clear(); // Mevcut ürün kartlarını temizle
+
+                        foreach (DataRow row in table.Rows) // Her bir ürün için DataRow üzerinden döner ve kart oluşturur
+                        {
+                            int id= row["id"] !=DBNull.Value ? (int)row["id"] : 0;// ID değeri veritabanından okunur, eğer null ise 0 olarak atanır
+                            string urunadi = row["urun_adi"] != DBNull.Value ? row["urun_adi"].ToString() : "Bilinmiyor";// Ürün adı veritabanından okunur, eğer null ise "Bilinmiyor" olarak atanır
+                            string stok = row["stok"] != DBNull.Value ? row["stok"].ToString() : "0";
+                            string fiyat = row["fiyat"] != DBNull.Value ? $"${Convert.ToDecimal(row["fiyat"]):F2}" : "$0.00";                           
+                            string urunid = row["urun_id"] != DBNull.Value ? row["urun_id"].ToString() : "Bilinmiyor";
+                            string kategori = row["kategori"] != DBNull.Value ? row["kategori"].ToString() : "Bilinmiyor";
+                            
+
+                            Image image = null;
+                            if (row["id"] != DBNull.Value) // ID değeri null değilse
+                            {
+                                string imagePath = row["image"].ToString();// Veritabanından image sütunundaki değeri string olarak alır
+                                if (!string.IsNullOrEmpty(imagePath) && File.Exists(imagePath)) // Eğer imagePath boş değilse ve dosya mevcutsa
+                                {
+                                    try
+                                    {
+                                        image = Image.FromFile(imagePath); // Dosyadan resmi yükler
+                                    }
+                                    catch(Exception ex)
+                                    {
+                                        image = null; // Resim yüklenemezse image değişkenini null yapar
+                                    }
+                                }
+                            }
+
+                            karticerigi(id, urunadi, stok, fiyat, image, urunid, kategori,"0"); // Her bir ürün için kart oluşturur ve flowLayoutPanel'e ekler
+                                                                                            
+
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ürünler yüklenirken bir hata oluştu: " + ex.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        bool check = false;
+
+        private void siparis_odenenTutar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                try
+                {
+                    decimal getToplam = Convert.ToDecimal(siparis_toplam.Text.ToString().Replace("$", ""));
+                    decimal getOdenenTutar = Convert.ToDecimal(siparis_odenenTutar.Text);
+
+                    if (getToplam > getOdenenTutar)
+                    {
+                        MessageBox.Show("Yetersiz Tutar! Lütfen yeterli bir tutar giriniz.", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                    }
+                    else
+                    {
+                        check = true;
+                        siparis_paraustu.Text = $"${(getOdenenTutar - getToplam):0.00}";//
+                    }
+                    e.SuppressKeyPress = true; // Enter tuşunun varsayılan davranışını engeller, böylece yeni satır eklenmez veya başka bir işlem tetiklenmez
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hatalı giriş! Lütfen sadece rakam kullanın.", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void siparis_siparisTamamlaBtn_Click(object sender, EventArgs e)
+        {
+            if (!check)
+            {
+                MessageBox.Show("Lütfen ödeme tutarını giriniz!", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            else
+            {
+                if(MessageBox.Show("Siparişi tamamlamak istediğinize emin misiniz?", "Onay Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    using (SqlConnection connect = new SqlConnection(connection))
+                    {
+                        connect.Open();
+
+                        string countData = "SELECT COUNT(*) FROM siparisler"; // SQL sorgusu, siparisler tablosundaki toplam sipariş sayısını alır //COUNT:sipariş sayısını sayar
+
+                        int count = 1; // Sipariş sayısını tutmak için bir değişken
+
+                        using (SqlCommand cData = new SqlCommand(countData, connect))
+                        {
+                            count = Convert.ToInt32(cData.ExecuteScalar()) + 1; // SQL sorgusunu çalıştırır ve sipariş sayısını alır, ardından 1 ekleyerek yeni siparişin ID'si için kullanılacak sayıyı günceller   
+                        }
+
+                        List<string> urunId = new List<string>(); // Sipariş edilen ürünlerin ID'lerini tutmak için bir liste
+                        List<string> adet = new List<string>(); // Sipariş edilen ürünlerin adetlerini tutmak için bir liste
+                        List<string> fiyat = new List<string>(); // Sipariş edilen ürünlerin fiyatlarını tutmak için bir liste
+
+
+                        foreach (DataGridViewRow row in dataGridView1.Rows) // DataGridView'deki her bir satır için döner
+                        {
+                            if (row.Cells["id"].Value != null && row.Cells["adet"].Value != null && row.Cells["fiyat"].Value != null) // Eğer ürün ID'si, adet ve fiyat hücrelerinde değer varsa
+                            {
+                                urunId.Add(row.Cells["id"].Value.ToString()); // Ürün ID'sini urunId listesine ekler
+                                adet.Add(row.Cells["adet"].Value.ToString()); // Adet değerini adet listesine ekler
+                                fiyat.Add(row.Cells["fiyat"].Value.ToString()); // Fiyat değerlerini fiyat listesine ekler
+                            }
+                        }
+
+                        string urunIdString = string.Join(",", urunId); // Ürün ID'lerini virgülle ayrılmış bir string olarak birleştirir
+                        string adetString = string.Join(",", adet); // Adet değerlerini virgülle ayrılmış bir string olarak birleştirir
+                        string fiyatString = string.Join(",", fiyat); // Fiyat değerlerini virgülle ayrılmış bir string olarak birleştirir
+                        
+                        //hata olursa bak
+                        decimal toplamDecimal = Convert.ToDecimal(siparis_toplam.Text.Replace("$", ""));
+                        string toplamHesap = toplamDecimal.ToString("0.00", CultureInfo.InvariantCulture); // invariant culture ile nokta ayracı kullanılır
+
+                        string insertData = "INSERT INTO siparisler (musteriId, urunId,adet ,fiyat,toplam,date_siparis) VALUES (@musteriId, @urunId, @adet, @fiyat,@toplam, @date_siparis)"; // SQL sorgusu, yeni siparişi siparisler tablosuna ekler
+
+
+                        using (SqlCommand cmd = new SqlCommand(insertData, connect))// SQL sorgusunu çalıştırmak ve yeni siparişi veritabanına eklemek için SqlCommand kullanılır
+                        {
+                            cmd.Parameters.AddWithValue("@musteriId", $"SID-{count}"); // Yeni siparişin ID'si olarak "SID-" ile başlayan bir string oluşturur//örneğin: SID-1, SID-2, vb.//SID:sipariş ID'si
+                            cmd.Parameters.AddWithValue("@urunId", urunIdString); // Ürün ID'lerini parametre olarak ekler
+                            cmd.Parameters.AddWithValue("@adet", adetString); // Adet değerlerini parametre olarak ekler
+                            cmd.Parameters.AddWithValue("@fiyat", fiyatString); // Fiyat değerlerini parametre olarak ekler
+
+                            cmd.Parameters.Add("@toplam", System.Data.SqlDbType.VarChar).Value = toplamHesap; // gönderilen toplamı invariant culture ile nokta kullanarak string olarak ekliyoruz
+
+                            DateTime today = DateTime.Now.Date; // Mevcut tarihi alır (saat sıfırlanmaz)
+                            cmd.Parameters.Add("@date_siparis", System.Data.SqlDbType.Date).Value = today; // Sipariş tarihini parametre olarak ekler (Date olarak)
+
+                            int rowAffected = cmd.ExecuteNonQuery(); // SQL sorgusunu çalıştırır ve yeni siparişi veritabanına ekler
+                            
+                            if (rowAffected > 0) // Eğer sorgu başarılı bir şekilde çalıştıysa
+                            {
+                                for (int i = 0; i < urunId.Count; i++)// Sipariş edilen her bir ürün için döner
+                                {
+                                    
+                                    string getStokData = "SELECT stok FROM urunler WHERE id = @id"; // SQL sorgusu, belirli bir ürünün stok miktarını alır
+                                    int currentStok = 0; // Mevcut stok miktarını tutmak için bir değişken
+
+
+                                    using (SqlCommand getStokCmd = new SqlCommand(getStokData, connect))
+                                    {
+                                        getStokCmd.Parameters.AddWithValue("@id", urunId[i]); // Ürün ID'sini parametre olarak ekler
+                                        object result = getStokCmd.ExecuteScalar(); // SQL sorgusunu çalıştırır ve stok miktarını alır  
+
+                                        if (result != null) 
+                                        {
+                                            currentStok = Convert.ToInt32(result); // Stok miktarını int türüne dönüştürür
+                                        }
+
+                                    }
+                                    int newStok = currentStok - Convert.ToInt32(adet[i]); // Yeni stok miktarını hesaplar (mevcut stok - sipariş edilen adet)
+                                    if (newStok < 0)// Eğer yeni stok miktarı negatifse, yeterli stok olmadığını gösterir ve işlemi durdurur
+                                    {
+                                        MessageBox.Show($"Ürün ID {urunId[i]} için yeterli stok yok! Mevcut stok: {currentStok}, Sipariş edilen adet: {adet[i]}", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    
+                                        
+
+
+                                    string updateData = "UPDATE urunler SET stok = stok - @adet WHERE id = @id"; // SQL sorgusu, sipariş edilen ürünlerin stok miktarını günceller
+                                    using (SqlCommand updateCmd = new SqlCommand(updateData, connect))
+                                    {
+                                        updateCmd.Parameters.AddWithValue("@adet",newStok); // Adet değerini parametre olarak ekler
+                                        updateCmd.Parameters.AddWithValue("@id", urunId[i]); // Ürün ID'sini parametre olarak ekler
+
+                                        updateCmd.ExecuteNonQuery(); // SQL sorgusunu çalıştırır ve ürün stok miktarını günceller
+                                    }
+                                }
+                                MessageBox.Show("Sipariş başarıyla tamamlandı!", "Bilgi Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information); // Sipariş başarıyla tamamlandığında kullanıcıya bilgi mesajı gösterir
+                            }
+                            else 
+                            
+                            {
+                                MessageBox.Show("Sipariş tamamlanırken bir hata oluştu!", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error); // Sipariş tamamlanırken bir hata oluştuğunda kullanıcıya hata mesajı gösterir
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+        //fiş yazdır youtubedan alındı 
+        private int rowIndex = 0;
+        private void siparis_fisYazdirBtn_Click(object sender, EventArgs e)
+        {
+            printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(printDocument1_PrintPage); // printDocument1'in PrintPage olayına printDocument1_PrintPage adlı bir olay işleyicisi ekler
+            printDocument1.BeginPrint += new System.Drawing.Printing.PrintEventHandler(printDocument1_BeginPrint); // printDocument1'in BeginPrint olayına printDocument1_BeginPrint adlı bir olay işleyicisi ekler
+
+            printPreviewDialog1.Document = printDocument1; // printDocument1'i printPreviewDialog1'in Document özelliğine atar //bu şunu yapar: printDocument1'de tanımlanan yazdırma işlemi, printPreviewDialog1'de önizleme olarak gösterilir
+            printPreviewDialog1.ShowDialog(); // printPreviewDialog1'i ekranda gösterir, böylece kullanıcı yazdırma önizlemesini görebilir ve yazdırma işlemini başlatabilir
+        }
+
+        private void printDocument1_BeginPrint(object sender, System.Drawing.Printing.PrintEventArgs e)
+        {// Yazdırma işlemi başlamadan önce yapılması gereken işlemleri tanımlayan bir olay işleyicisidir. Bu örnekte, rowIndex değişkeni sıfırlanarak yazdırma işlemine başlanır. rowIndex, yazdırılacak verilerin hangi satırdan başlayacağını takip etmek için kullanılır. Yazdırma işlemi sırasında, her bir satır yazdırıldıkça rowIndex artırılarak bir sonraki satırın yazdırılması sağlanır.
+            rowIndex = 0;
+        }
+
+        private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
+        {// Yazdırma işlemi sırasında her bir sayfa için yapılması gereken işlemleri tanımlayan bir olay işleyicisidir. Bu örnekte, yazdırılacak verilerin bulunduğu DataGridView'deki satırları tek tek yazdırmak için kullanılır. Yazdırma işlemi sırasında, y değişkeni kullanılarak her bir satırın yazdırılacağı y koordinatı belirlenir. Satır sayısı count değişkeni ile takip edilir ve her bir satır yazdırıldıkça count artırılır. Sütun genişliği colWidth değişkeni ile belirlenir ve başlık ile tablo arasındaki boşluk headrMargin ve tableMargin değişkenleri ile kontrol edilir. Font nesneleri font, bold, headerFont ve labelFont ile yazı tipleri ve boyutları belirlenir.
+           
+            float y = 0; // Yazdırma işlemi sırasında y koordinatını tutmak için bir değişken
+            int count = 0; // Yazdırılan satır sayısını tutmak için bir değişken
+            int colWidth = 120; // Sütun genişliğini belirleyen bir değişken//column width: sütun genişliği
+            int headrMargin = 10; // Başlık ve yazdırılacak veriler arasındaki boşluğu belirleyen bir değişken //margin:kenar boşlukları
+            int tableMargin = 5; // Tablo ve yazdırılacak veriler arasındaki boşluğu belirleyen bir değişken 
+
+
+            Font font = new Font("Arial", 12); // Yazı tipini ve boyutunu belirleyen bir Font nesnesi
+            Font bold =new Font("Arial", 12, FontStyle.Bold); // Kalın yazı tipini ve boyutunu belirleyen bir Font nesnesi
+            Font headerFont = new Font("Arial", 14, FontStyle.Bold); // Başlık yazı tipini ve boyutunu belirleyen bir Font nesnesi
+            Font labelFont = new Font("Arial", 14, FontStyle.Bold); // Etiket yazı tipini ve boyutunu belirleyen bir Font nesnesi
+
+            float margin = e.MarginBounds.Left; // Yazdırma alanının sol kenar boşluğunu margin değişkenine atar
+
+            StringFormat yaziOrtala = new StringFormat();// Yazıyı ortalamak için bir StringFormat nesnesi oluşturur
+            yaziOrtala.Alignment = StringAlignment.Center; // Yazıyı yatay olarak ortalar
+            yaziOrtala.LineAlignment = StringAlignment.Center; // Yazıyı dikey olarak ortalar
+            
+            string headerText="Chef's Code Restaurant"; // Yazdırılacak başlık metni
+            y=(margin + count*headerFont.GetHeight(e.Graphics)+ headrMargin); // Başlık ve yazdırılacak veriler arasındaki boşluğu hesaplar
+            e.Graphics.DrawString(headerText, headerFont, Brushes.Black, e.MarginBounds.Left +(dataGridView1.Columns.Count/2)*colWidth,y, yaziOrtala); // "Sipariş Fişi" başlığını yazdırır
+
+            count++;
+            y+= tableMargin; // Tablo ve yazdırılacak veriler arasındaki boşluğu ekler
+
+            string[] header = {"UrunId", "UrunAdi", "Adet","Fiyat"}; // Tablo başlıklarını içeren bir dizi}
+
+            for(int i=0; i< header.Length; i++) // Tablo başlıklarını yazdırır
+            {
+                y= margin+count*bold.GetHeight(e.Graphics) + tableMargin; // Tablo başlıkları ve yazdırılacak veriler arasındaki boşluğu hesaplar
+                e.Graphics.DrawString(header[i], bold, Brushes.Black, e.MarginBounds.Left + i*colWidth, y,yaziOrtala); // Tablo başlıklarını yazdırır
+            }
+            count++;
+
+            float rBosluk = e.MarginBounds.Bottom - y;
+            while (rowIndex < dataGridView1.Rows.Count)
+            {
+                DataGridViewRow row = dataGridView1.Rows[rowIndex];
+
+                for (int i = 0; i < dataGridView1.Columns.Count; i++)
+                {
+                    object cellValue = row.Cells[i].Value;
+                    string cell =(cellValue != null)? cellValue.ToString() : string.Empty;
+
+                    y=margin+count*font.GetHeight(e.Graphics) +tableMargin;
+                    e.Graphics.DrawString(cell,font,Brushes.Black, e.MarginBounds.Left + i*colWidth,y,yaziOrtala);
+
+                }
+                count++;
+                rowIndex++;
+
+                if (y + font.GetHeight(e.Graphics) > e.MarginBounds.Bottom)
+                {
+                    e.HasMorePages= true;
+                    return;
+                }
+            }
+            int labelMargin = (int)Math.Min(rBosluk, 200);
+
+            DateTime today =DateTime.Now;
+            float labelX = e.MarginBounds.Right - e.Graphics.MeasureString("-------------------------", labelFont).Width;
+
+            y = e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
+            e.Graphics.DrawString($"Toplam Fiyat: \t${siparis_toplam.Text.Trim()}\nÖdenen Tutar:\t{siparis_odenenTutar.Text.Trim()}\n\t\t----------\nPara Üstü:\t{siparis_paraustu.Text.Trim()}", labelFont, Brushes.Black, labelX, y);
+
+            labelMargin=(int)Math.Min(rBosluk, -40);
+            string labelText = today.ToString();
+
+            y= e.MarginBounds.Bottom - labelMargin - labelFont.GetHeight(e.Graphics);
+            e.Graphics.DrawString(labelText,labelFont,Brushes.Black,e.MarginBounds.Right -e.Graphics.MeasureString("-------------------------", labelFont).Width, y);
+
+
+
+
+        }
+    }
+}

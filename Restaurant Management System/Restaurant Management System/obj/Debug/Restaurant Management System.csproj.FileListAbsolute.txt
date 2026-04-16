@@ -1,0 +1,84 @@
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Restaurant Management System.exe.config
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Restaurant Management System.exe
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Restaurant Management System.pdb
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\BouncyCastle.Cryptography.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Google.Protobuf.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Guna.UI2.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\K4os.Compression.LZ4.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\K4os.Compression.LZ4.Streams.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\K4os.Hash.xxHash.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Bcl.HashCode.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.EntityFrameworkCore.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Configuration.Binder.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Configuration.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Logging.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Options.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Primitives.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Buffers.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Collections.Immutable.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.ComponentModel.Annotations.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Configuration.ConfigurationManager.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Diagnostics.DiagnosticSource.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.IO.Pipelines.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Memory.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Numerics.Vectors.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\ZstdSharp.dll
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\BouncyCastle.Cryptography.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Google.Protobuf.pdb
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Google.Protobuf.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\K4os.Compression.LZ4.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\K4os.Compression.LZ4.Streams.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\K4os.Hash.xxHash.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Bcl.AsyncInterfaces.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Bcl.HashCode.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.EntityFrameworkCore.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Caching.Memory.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Configuration.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Configuration.Binder.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.DependencyInjection.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Logging.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Options.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\Microsoft.Extensions.Primitives.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Buffers.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Collections.Immutable.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Configuration.ConfigurationManager.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Diagnostics.DiagnosticSource.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.IO.Pipelines.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Memory.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Numerics.Vectors.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant Management System.csproj.AssemblyReference.cache
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.anasayfaForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.Form1.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.MainForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.Properties.Resources.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.signupForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant Management System.csproj.GenerateResource.cache
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant Management System.csproj.CoreCompileInputs.cache
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaura.FBAF3D39.Up2Date
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant Management System.exe
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant Management System.pdb
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.siparisForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.stokyonetimiForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.kategorilerForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.musterilerForm.resources
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant Management System.exe.config
+C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\obj\Debug\Restaurant_Management_System.urunKart.resources

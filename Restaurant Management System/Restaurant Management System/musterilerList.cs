@@ -1,0 +1,110 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Web.UI.Design.WebControls;
+using System.Data.SqlClient;// SQL Server bağlantısı için gerekli kütüphane
+
+namespace Restaurant_Management_System
+{
+    internal class musterilerList// Müşteri sipariş bilgilerini tutmak ve veritabanından çekmek için oluşturulan sınıf
+    {
+        string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\DatabaseRestoran.mdf;Integrated Security=True";
+
+        public int id { set; get; }
+        public string musteriId { set; get; }
+        public string urunID { set; get; }
+
+        public string adet { set; get; }
+        public string fiyat { set; get; }
+        public string toplam { set; get; }
+        public string date_siparis { set; get; }
+
+        public List<musterilerList> musteriListData()// Veritabanından müşteri sipariş bilgilerini çekmek için oluşturulan metot
+        {
+
+            List<musterilerList> listData = new List<musterilerList>();
+
+            using(SqlConnection connect = new SqlConnection(connection))
+            { 
+           
+                connect.Open();
+                string selectData = "SELECT*FROM siparisler";
+
+                using (SqlCommand cmd =new SqlCommand(selectData, connect))
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        musterilerList cData = new musterilerList();
+
+                        cData.id = (int)reader["id"];
+                        cData.musteriId = reader["musteriId"].ToString();
+                        cData.urunID = reader["urunId"].ToString();
+                        cData.adet = reader["adet"].ToString();
+                        cData.fiyat = reader["fiyat"].ToString();
+                        cData.toplam = reader["toplam"].ToString();
+                       
+                        cData.date_siparis = ((DateTime)reader["date_siparis"]).ToString("dd-MM-yyyy") ;
+
+                        listData.Add(cData);
+
+
+                    }
+                }
+           
+            }
+
+          return listData;
+
+   
+        }
+        public List<musterilerList> GunlukSatisMusteriListData()// Günlük satışları getiren metot
+        {
+
+            List<musterilerList> listData = new List<musterilerList>();
+
+            using (SqlConnection connect = new SqlConnection(connection))
+            {
+                
+               connect.Open();
+                string selectData = "SELECT*FROM siparisler WHERE date_siparis=@date_siparis";
+
+
+                using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                {
+                    DateTime today = DateTime.Now.Date;
+                    cmd.Parameters.Add("@date_siparis", System.Data.SqlDbType.Date).Value = today;
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        musterilerList cData = new musterilerList();
+
+                        cData.id = (int)reader["id"];
+                        cData.musteriId = reader["musteriId"].ToString();
+                        cData.urunID = reader["urunId"].ToString();
+                        cData.adet = reader["adet"].ToString();
+                        cData.fiyat = reader["fiyat"].ToString();
+                        cData.toplam = reader["toplam"].ToString();
+
+                        cData.date_siparis = ((DateTime)reader["date_siparis"]).ToString("dd-MM-yyyy");
+
+                        listData.Add(cData);
+
+
+                    }
+                }
+
+            }
+
+            return listData;
+
+
+        }
+    }
+    
+}

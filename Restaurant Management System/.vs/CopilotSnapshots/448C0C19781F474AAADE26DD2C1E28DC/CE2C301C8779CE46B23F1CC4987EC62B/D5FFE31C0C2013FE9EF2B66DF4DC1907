@@ -1,0 +1,330 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data; // DataTable gibi veri yapıları için gerekli kütüphane
+using System.Data.SqlClient; // SQL Server bağlantısı için gerekli kütüphane
+using System.IO; // Dosya işlemleri için gerekli kütüphane
+
+namespace Restaurant_Management_System
+{
+    public partial class stokyonetimiForm : UserControl
+    {
+        string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\DatabaseRestoran.mdf;Integrated Security=True";
+
+        public stokyonetimiForm()
+        {
+            InitializeComponent();//bunu ben eklemdim tasarım kısmında otomatik olarak ekleniyor.//başlatıyor tasrımı billeşenlerini
+
+            kategoriGoster();//kategoriGoster() fonksiyonunu çağırarak stok yönetimi formu oluşturulduğunda kategorileri göstermek için kullanılır. Bu fonksiyon, veritabanından aktif kategorileri çekerek ComboBox'a ekler. Böylece kullanıcı stok eklerken hangi kategoriye ait olduğunu seçebilir.//en aşağıda
+            urunleriGoster();//urunleriGoster() fonksiyonunu çağırarak stok yönetimi formu oluşturulduğunda ürünleri göstermek için kullanılır. Bu fonksiyon, veritabanından ürün bilgilerini çekerek DataGridView'e bağlar ve görüntüler. Böylece kullanıcı mevcut ürünleri görebilir ve yönetebilir.
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void urunleriGoster()//ürünleri göstermek için oluşturulan metot
+        {
+            UrunlerList uList = new UrunlerList(); // UrunlerList sınıfından bir nesne oluşturulur
+            List<UrunlerList> listdata = uList.UrunlerListData(); // UrunlerListData() metodunu çağırarak ürünleri alır //class da oluşturdum // UrunlerListData() metodu, veritabanından ürünleri alır ve bir liste olarak döndürür. daha hızlı olsun diye
+            dataGridView1.DataSource = listdata; // Alınan ürünleri DataGridView'e bağlar ve görüntüler
+        }
+
+        public void kategoriGoster()
+        {
+            stokYonetimi_kategori.Items.Clear(); // ComboBox'ı temizler
+
+            using (SqlConnection connect = new SqlConnection(connection))
+            {
+                connect.Open();
+                string selectKat = "SELECT * FROM kategoriler WHERE status ='Aktif'"; // Kategorileri seçen SQL sorgusu
+                using (SqlCommand cmd = new SqlCommand(selectKat, connect))// SQL sorgusunu çalıştırmak için SqlCommand nesnesi oluşturulur
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();// SQL sorgusunu çalıştırır ve sonuçları SqlDataReader ile okur
+                    while (reader.Read())
+                    {
+                        stokYonetimi_kategori.Items.Add(reader["kategori"]); // ComboBox'a kategori adlarını ekler
+
+                    }
+                }
+            }
+        }
+
+        private void stokYonetimi_ekleBtn_Click(object sender, EventArgs e)
+        {
+            if (stokYonetmi_urunıd.Text == "" || stokYonetimi_urunadi.Text == "" || stokYonetimi_kategori.SelectedIndex == -1 || stokYonetimi_stok.Text == "" || stokYonetimi_fiyat.Text == "" || stokYonetimi_stokDurumu.Text == "" || pictureBox1.Image == null) // Eğer herhangi bir gerekli alan boşsa veya görsel seçilmemişse, kullanıcıya uyarı mesajı gösterir.
+            {
+                MessageBox.Show("Lütfen tüm alanları doldurun ", "Eksik Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else// Eğer tüm alanlar doldurulmuşsa ve görsel seçilmişse, veritabanına yeni bir ürün eklemek için SQL bağlantısı açılır.
+            {
+                using (SqlConnection connect = new SqlConnection(connection))
+                {
+                    connect.Open();
+
+                    string checkUrunId = "SELECT * FROM urunler WHERE urun_id = @urun_id"; // Girilen ürün ID'sinin veritabanında zaten var olup olmadığını kontrol eden SQL sorgusu
+                    using (SqlCommand checkCmd = new SqlCommand(checkUrunId, connect))
+                    {
+                        checkCmd.Parameters.AddWithValue("@urun_id", stokYonetmi_urunıd.Text.Trim());
+                        SqlDataAdapter adapter = new SqlDataAdapter(checkCmd);
+                        DataTable table = new DataTable();
+                        adapter.Fill(table);
+                        if (table.Rows.Count != 0) // Eğer DataTable'da en az bir satır varsa, bu ürün ID'sinin zaten var olduğu anlamına gelir ve yeni bir ürün oluşturulamaz
+                        {
+                            MessageBox.Show("Bu ürün ID'si zaten mevcut! Lütfen başka bir ürün ID'si seçin.", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        }
+                        else
+                        {
+                            string yol = AppDomain.CurrentDomain.BaseDirectory; //// Programın çalıştığı ana klasör yolunu değişkene atar.
+                            /* AppDomain.CurrentDomain: "Şu an çalışan uygulama alanı" demektir.
+                           /BaseDirectory: Uygulamanın çalıştırılabilir dosyasının bulunduğu ana klasör yoludur.
+                           /string yol: Bulunan bu uzun klasör yolunu (Örn: C:\Users\Sevo\Proje\bin\Debug\) bir metin olarak bu değişkene kaydeder.*/
+
+
+                            string insertData = "INSERT INTO urunler (urun_id, urun_adi, kategori, stok, fiyat, stok_durumu, image,date_insert) VALUES(@urun_id, @urun_adi, @kategori, @stok, @fiyat, @stok_durumu, @image,@date_insert)"; // Parametreler, kullanıcı tarafından girilen değerlerle doldurulur.
+
+
+
+                            // 1. Satır: "urunler_klasoru" ismi ile ürün ID'sini birleştirip resmin dosya adını (Örn: 101.jpg) oluşturur. //relativePath: Sadece kapı numarasını ve apartman adını belirler (Örn: urunler_klasoru\5.jpg).
+                            string relativePath = Path.Combine("urunler_klasoru", stokYonetmi_urunıd.Text.Trim() + ".jpg");
+                            string path = Path.Combine(yol, relativePath);//bu şunu yapar:
+                                                                          // 2. Satır: Ana klasör yolu (yol) ile resim adını birleştirerek dosyanın bilgisayardaki TAM ADRESİNİ oluşturur. //path: Şehri ve mahalleyi de ekleyerek tam navigasyon adresini çıkarır (Örn: C:\Projelerim\bin\Debug\urunler_klasoru\5.jpg).
+                            string yeniPath = Path.GetDirectoryName(path); // Dosya yolundan klasör yolunu çıkarır (Örn: C:\Projelerim\bin\Debug\urunler_klasoru).
+
+                            if (!Directory.Exists(yeniPath)) // "path" yolundaki klasör mevcut değilse (!)    //Directory: Klasörlerle ilgili her şey (Yönetici)- Exists: "Var mı?"(Kontrolcü).-CreateDirectory: "Yeni klasör oluştur."(İnşaatçı).
+                            {
+                                Directory.CreateDirectory(yeniPath); // O klasörü oluştur
+                            }
+                            File.Copy(pictureBox1.ImageLocation, path, true); // Seçilen görseli oluşturulan klasöre kopyalar
+
+
+
+                            using (SqlCommand cmd = new SqlCommand(insertData, connect))
+                            {
+                                cmd.Parameters.AddWithValue("@urun_id", stokYonetmi_urunıd.Text.Trim());
+                                cmd.Parameters.AddWithValue("@urun_adi", stokYonetimi_urunadi.Text.Trim());
+                                cmd.Parameters.AddWithValue("@kategori", stokYonetimi_kategori.SelectedItem.ToString());
+                                cmd.Parameters.AddWithValue("@stok", stokYonetimi_stok.Text.Trim());
+                                cmd.Parameters.AddWithValue("@fiyat", stokYonetimi_fiyat.Text.Trim());
+                                cmd.Parameters.AddWithValue("@stok_durumu", stokYonetimi_stokDurumu.SelectedItem.ToString());//combo box'tan seçilen değeri string olarak alır
+                                cmd.Parameters.AddWithValue("@image", path);
+
+                                DateTime today = DateTime.Now;//şuankitarihi alır
+                                cmd.Parameters.AddWithValue("@date_insert", today);
+
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Başarılı bir şekilde eklendi!", "Bilgi Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                                alaniTemizle();// işlemi yaptıktan sonra alanları temizler
+                            }
+
+                        }
+                    }
+
+
+
+                }
+            }
+            urunleriGoster();
+        }
+        private void stokYonetimi_ImportBtn_Click(object sender, EventArgs e)
+        {
+            try // Hata oluşma ihtimali olan kodların yazıldığı bloktur.
+            {
+                OpenFileDialog dialog = new OpenFileDialog(); // Dosya seçme penceresi oluşturur.
+                dialog.Filter = "Resim Dosyaları (*.jpg, *.png)|*.jpg;*.png";// Dosya türlerini filtreler, sadece .jpg ve .png uzantılı dosyaların seçilmesine izin verir.
+                
+                string imagePath = ""; // Seçilen görselin yolunu tutacak değişken
+                if (dialog.ShowDialog() == DialogResult.OK) // Kullanıcı dosya seçip 'Tamam' but
+                {
+                    imagePath = dialog.FileName; // Seçilen dosyanın tam yolunu alır
+                    pictureBox1.ImageLocation = imagePath; // PictureBox'ın ImageLocation özelliğine seçilen dosyanın yolunu atar, böylece görsel PictureBox'ta görüntülenir.
+                } 
+            }
+            catch (Exception ex) // Hata oluşursa çalışacak ve hatayı 'e' değişkenine aktaracak bloktur.
+            {
+
+                MessageBox.Show("Hata: " + ex.Message, "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        void alaniTemizle() // işlemi tamamlandıktan sonra alanları temizler bu metot
+        {
+            stokYonetmi_urunıd.Clear();
+            stokYonetimi_urunadi.Clear();
+            stokYonetimi_kategori.SelectedIndex = -1;//neden -1 çünkü:
+            stokYonetimi_stok.Clear();
+            stokYonetimi_fiyat.Clear();
+            stokYonetimi_stokDurumu.SelectedIndex = -1;//combo box'ta seçili olan değeri kaldırır, yani hiçbir seçenek seçilmemiş hale getirir.
+            pictureBox1.Image = null;
+            getID = 0;
+
+        }
+
+        private void stokYonetimi_silBtn_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bu ID silmek  istediğine emin misin?", "Bilgi Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (getID == 0)
+                {
+                    MessageBox.Show("Lütfen silmekistediğiniz ürünü seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    using (SqlConnection connect = new SqlConnection(connection))
+                    {
+                        connect.Open();
+                        string updateData = "DELETE FROM urunler WHERE id = @id"; // SQL sorgusu, seçilen ürünü silmek için kullanılır
+                        
+                            using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                            {
+                                cmd.Parameters.AddWithValue("@id", getID);
+                                cmd.ExecuteNonQuery();
+                                MessageBox.Show("Başarılı bir şekilde silindi!", "Bilgi Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                alaniTemizle();
+                            }
+
+                        
+
+                    }
+                } 
+            }
+            urunleriGoster();// Silme işlemi yapıldıktan sonra ürünleri tekrar göstermek için urunleriGoster() metodu çağırılır, böylece DataGridView güncellenir ve silinen ürün artık görünmez olur.
+        }
+
+        private int getID = 0; // Veritabanından çekilen ürünlerin ID'sini tutmak için kullanılan değişken  
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Eğer tıklanan hücre geçerli bir satırda ise
+            {
+                DataGridViewRow row = dataGridView1.Rows[e.RowIndex]; // Tıklanan satırı alır
+                getID = (int)row.Cells[0].Value; // Satırdaki "id" hücresinin değerini getID değişkenine atar
+                stokYonetmi_urunıd.Text = row.Cells[1].Value.ToString(); // Satırdaki "urun_id" hücresinin değerini stokYonetmi_urunıd TextBox'ına atar
+                stokYonetimi_urunadi.Text = row.Cells[2].Value.ToString();
+                stokYonetimi_kategori.Text = row.Cells[3].Value.ToString();
+                stokYonetimi_stok.Text = row.Cells[4].Value.ToString();
+                stokYonetimi_fiyat.Text = row.Cells[5].Value.ToString();
+                stokYonetimi_stokDurumu.Text = row.Cells[6].Value.ToString();
+
+                string imagePath=row.Cells[7].Value.ToString(); // Satırdaki "image" hücresinin değerini imagePath değişkenine atar
+                try
+                {
+                    if (imagePath != null)
+                    {
+                        pictureBox1.ImageLocation = imagePath; // PictureBox'ın ImageLocation özelliğine imagePath'i atar, böylece görsel PictureBox'ta görüntülenir.
+                    }
+                    else
+                    {
+                        pictureBox1.Image = null; // Eğer imagePath null ise, PictureBox'ın Image özelliğini null yaparak görseli kaldırır.
+                    }
+                } catch (Exception ex)
+                {
+                    MessageBox.Show("Görsel yüklenirken hata oluştu: " + ex.Message, "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
+
+            }
+        }
+
+        private void stokYonetimi_guncelleBtn_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Bu ID güncellemek istediğine emin misin?", "Bilgi Mesajı", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                if (getID == 0)
+                {
+                    MessageBox.Show("Lütfen güncellenecek ürünü seçin!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+                else
+                {
+                    using (SqlConnection connect = new SqlConnection(connection))
+                    {
+                        connect.Open();
+                        string checkUrunId = "SELECT * FROM urunler WHERE urun_id = @urun_id"; // Girilen ürün ID'sinin veritabanında başka bir ürün tarafından kullanılıp kullanılmadığını kontrol eden SQL sorgusu
+                        using (SqlCommand checkUrun = new SqlCommand(checkUrunId, connect))
+                        {
+                            checkUrun.Parameters.AddWithValue("@urun_id", stokYonetmi_urunıd.Text.Trim());
+                            SqlDataAdapter adapter = new SqlDataAdapter(checkUrun);
+                            DataTable table = new DataTable();
+                            adapter.Fill(table);
+                            if (table.Rows.Count >= 2)
+                            {
+                                MessageBox.Show("Bu ürün ID'si başka bir ürün tarafından kullanılıyor! Lütfen başka bir ürün ID'si seçin.", "Hata Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                            }
+                            else
+                            {
+                                string updateData = "UPDATE urunler SET urun_id = @urun_id, urun_adi = @urun_adi, kategori = @kategori, stok = @stok, fiyat = @fiyat, stok_durumu = @stok_durumu,date_update=@date_update WHERE id = @id"; // SQL sorgusu, seçilen ürünü güncellemek için kullanılır
+                                using (SqlCommand cmd = new SqlCommand(updateData, connect))
+                                {
+                                    cmd.Parameters.AddWithValue("@urun_id", stokYonetmi_urunıd.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@urun_adi", stokYonetimi_urunadi.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@kategori", stokYonetimi_kategori.SelectedItem.ToString());
+                                    cmd.Parameters.AddWithValue("@stok", stokYonetimi_stok.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@fiyat", stokYonetimi_fiyat.Text.Trim());
+                                    cmd.Parameters.AddWithValue("@stok_durumu", stokYonetimi_stokDurumu.SelectedItem.ToString());
+                                    DateTime today = DateTime.Now;
+                                    cmd.Parameters.AddWithValue("@date_update", today);
+                                    cmd.Parameters.AddWithValue("@id", getID);
+                                    cmd.ExecuteNonQuery();
+                                    MessageBox.Show("Başarılı bir şekilde güncellendi!", "Bilgi Mesajı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                    alaniTemizle();
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            urunleriGoster();
+        }
+
+        private void stokYonetimi_temizleBtn_Click(object sender, EventArgs e)
+        {
+            // Temizle butonuna basıldığında form alanlarını temizleyip listeyi güncelliyoruz
+            alaniTemizle();
+            urunleriGoster();
+            // Odak ilk alana gelsin
+            stokYonetmi_urunıd.Focus();
+        }
+    }
+}

@@ -1,0 +1,151 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient; // SQL Server bağlantısı için gerekli kütüphane
+
+namespace Restaurant_Management_System
+{
+    public partial class anasayfaForm : UserControl
+    {
+        string connection = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\alayi\OneDrive\Desktop\Restaurant Management System\Restaurant Management System\Restaurant Management System\DatabaseRestoran.mdf;Integrated Security=True";
+
+        public anasayfaForm()
+        {
+            InitializeComponent();
+            KullaniciGoster();
+            UrunleriGoster();
+            GunlukCiroGoster();
+            ToplamCiroGoster();
+
+            GunlukToplamSatisGoster();
+        }
+
+        public void GunlukToplamSatisGoster() // Günlük toplam satışları göstermek için kullanılan bir yöntem//clasa musterilerList ekleyerek, musterilerList sınıfının GunlukSatisMusteriListData() metodunu çağırarak günlük satış müşteri listesini alır ve bu listeyi dataGridView1'in veri kaynağı olarak atar. Böylece, dataGridView1 kontrolünde günlük satış müşteri verileri görüntülenir.
+        { 
+            musterilerList cData = new musterilerList();
+            List<musterilerList> listData = cData.GunlukSatisMusteriListData();
+            dataGridView1.DataSource = listData;
+
+        }
+
+        public void KullaniciGoster()// Kullanıcı sayısını göstermek için kullanılan bir yöntem
+        {
+            using (SqlConnection connect = new SqlConnection(connection))
+            {
+                connect.Open();
+
+                string selectData = "SELECT  COUNT(id) FROM users";
+
+                using(SqlCommand cmd = new SqlCommand(selectData, connect))
+                {
+                    SqlDataReader reader= cmd.ExecuteReader();//
+
+                    if (reader.Read()) 
+                    {
+                        int count = Convert.ToInt32(reader[0]);//
+                        anasayfa_toplamKullanici.Text=count.ToString();
+                    }
+                }
+            }
+        }
+
+        public void UrunleriGoster()// Ürün sayısını göstermek için kullanılan bir yöntem
+        {
+            using (SqlConnection connect = new SqlConnection(connection))
+            {
+                connect.Open();
+
+                string selectData = "SELECT  COUNT(id) FROM urunler";
+
+                using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                {
+                    SqlDataReader reader = cmd.ExecuteReader();//
+
+                    if (reader.Read())
+                    {
+                        int count = Convert.ToInt32(reader[0]);//
+                        anasayfa_toplamUrun.Text = count.ToString();
+                    }
+                }
+            }
+        }
+
+        public void GunlukCiroGoster()// Günlük ciroyu göstermek için kullanılan bir yöntem. Veritabanından bugün yapılan siparişlerin toplam cirosunu hesaplar ve anasayfa_gunlukCiro adlı kontrol üzerinde gösterir.
+        {
+            using (SqlConnection connect = new SqlConnection(connection))
+            {
+                connect.Open();
+
+                string selectData = "SELECT SUM(CAST(toplam as DECIMAL(10,2))) FROM siparisler WHERE date_siparis = @date";
+
+                using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                {
+                    DateTime today = DateTime.Now; // Bugünün tarihini alır
+                    string getToday = today.ToString("yyyy-MM-dd");
+                    
+                    cmd.Parameters.AddWithValue("@date", getToday); // SQL sorgusuna bugünün tarihini parametre olarak ekler
+                                                                            //cmd.Parameters.AddWithValue("@date_siparis", today); // SQL sorgusuna bugünün tarihini parametre olarak ekler
+
+                    SqlDataReader reader = cmd.ExecuteReader();//
+
+                    if (reader.Read())
+                    {
+                        // reader[0] değerinin DBNull (veritabanı boşluğu) olup olmadığını kontrol et
+                        if (reader[0] != DBNull.Value )
+                        {
+                            decimal ciro = Convert.ToDecimal(reader[0]);
+                            anasayfa_gunlukCiro.Text = "$" + ciro.ToString("0.00");
+                        }
+                        else
+                        {
+                            // Eğer veritabanından NULL döndüyse (hiç satış yoksa) 0 göster
+                            anasayfa_gunlukCiro.Text = "$0.00";
+                        }
+                    }
+                }
+            }
+        }
+
+        public void ToplamCiroGoster()// Toplam ciroyu göstermek için kullanılan bir yöntem. Veritabanından tüm siparişlerin toplam cirosunu hesaplar ve anasayfa_toplamCiro adlı kontrol üzerinde gösterir.
+        {
+            using (SqlConnection connect = new SqlConnection(connection))
+            {
+                connect.Open();
+
+                string selectData = "SELECT SUM(CAST(toplam as DECIMAL(10,2))) FROM siparisler";
+                using (SqlCommand cmd = new SqlCommand(selectData, connect))
+                {
+                   
+                    SqlDataReader reader = cmd.ExecuteReader();//
+
+                    if (reader.Read())
+                    {
+                        // Değerin boş (NULL) olup olmadığını kontrol et
+                        if (reader[0] != DBNull.Value)
+                        {
+                            decimal ciro = Convert.ToDecimal(reader[0]);
+                            anasayfa_toplamCiro.Text = "$" + ciro.ToString("0.00");
+                        }
+                        else
+                        {
+                            anasayfa_toplamCiro.Text = "$0.00";
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+    }
+}
